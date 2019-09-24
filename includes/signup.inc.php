@@ -1,23 +1,9 @@
 <?php
-ob_start();
-session_start();
-if (isset($_POST['regBtn'])){
 //Make sure that u put your own local db info and create it with the following 
 #id set to int auto increment
 #username set to VARCHAR 255
 #email set to VARCHAR 255
 #pwd (meaning password)
-
-$fullname = $_POST['fullname'];
-$email = $_POST['email'];
-$password = $_POST['password'];
-$confirmPassword = $_POST['confirmPassword'];
-//hashing pw with bcrypt hashing
-if($password == $confirmPassword){
-$password = password_hash(hash('sha384', $password, true), PASSWORD_DEFAULT);} 
-else {unset($password);}
-$mobile = $_POST['mobile'];
-
 $servername = "us-cdbr-iron-east-02.cleardb.net";
 $dbUsername="b0ae198915bb2d";
 $dbPassword = "16a1a0d0";
@@ -27,54 +13,90 @@ $conn = mysqli_connect($servername, $dbUsername, $dbPassword,$dbName );
 // $errors = [];
 if (!$conn) {
   die("Connection failed".mysqli_connect_error());
-}  
+}
+if (isset($_POST['regBtn'])){
 
-//checking db for similar entries
-$username =mysqli_query($conn, ("SELECT * from heroku_6639abf7d3c0725.users WHERE fullname = '$fullname'"));
-$email =mysqli_query($conn, ("SELECT * from heroku_6639abf7d3c0725.users WHERE email = '$email'"));
-$phone =mysqli_query($conn, ("SELECT * from heroku_6639abf7d3c0725.users WHERE phone = '$mobile'"));
+  $fullname = $_POST['fullname'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  $confirmPassword = $_POST['confirmPassword'];
+  $mobile = $_POST['mobile'];
 
-$result1 = mysqli_num_rows($username);
-$result2 = mysqli_num_rows($email);
-$result3 = mysqli_num_rows($phone);
 
-if (isset($password) && $result1==0 && $result2==0 && $result3==0){
+  
 
-  mysqli_query($con,("INSERT INTO heroku_6639abf7d3c0725.users(fullname, email, phone, password) VALUES 
-    ('$fullname','$email', '$mobile', '$password')"));
-    $message1 = "Signup successful";
-    echo "<script type='text/javascript'>alert('$message1');</script>";
-
-}    elseif ($result1 > 0){
-
-  $message2 = "This name already exists";
-  echo "<script type='text/javascript'>alert('$message2');</script>";
-
-      } elseif (!isset($password)){
-
-   $message3= "Passwords don't match";
-  echo "<script type='text/javascript'>alert('$message3');</script>";
-
-  } elseif ($result2 > 0){
-
-      $message4 = "This email address is already in use";
-      echo "<script type='text/javascript'>alert('$message4');</script>";
-
-  } elseif ($result3 > 0){
-
-      $message5 = "This phone number is already in use";
-     echo "<script type='text/javascript'>alert('$message5');</script>";
-
-  } elseif ($fullname || $email || $mobile || $password || $confirmPassword){
-
-      $message6 = "Please fill all fields!";
-      echo "<script type='text/javascript'>alert('$message6');</script>";
-
-  } 
-       
-mysqli_close($con);
+  if (empty($fullname) || empty($email) || empty($password) || empty($confirmPassword)) {
+    // array_push($errors, "One or more fields cannot be empty");
+    // exit();
+    echo "please something is missing";
+  // }
+  // elseif((!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $fullname)){
+    // echo "Invalid Email"
+    //   header("Location:  ../signup.php?error=invalidemailsandusername");
+    // exit();
+  }
+  
+  elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+    echo "invalid Email";
+    //   array_push($errors, "Please input a correct Email");
+    exit();
+  }
+  elseif(!preg_match("/[a-zA-Z0-9]/", $fullname)){
+    echo "full name should contain only alphanumeric";
+    //   array_push($errors, "please input a correct Username ");
+    exit();
+  }
+  elseif($password !== $confirmPassword){ 
+    echo "password and confirmpassword should match";
+    //  array_push($errors, "Password Mismatch");
+     exit();
+    }
+    else{
+      $sql = "SELECT * FROM users WHERE email=?";
+      $stmt = mysqli_stmt_init($conn);
+      if(!mysqli_stmt_prepare($stmt, $sql)){
+        // array_push($errors, "Connection to db error");
+        // exit();
+        echo "something is wrong with the database connction ";
+      }
+      else{
+        mysqli_stmt_bind_param($stmt,"s", $email);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_store_result($stmt);
+        $resultCheck = mysqli_stmt_num_rows();
+        if ($resultCheck>0) {
+          // array_push($errors, "User email already taken ");
+          // exit();
+          echo "Username has already been taken";
+        }else{
+          $sql = "INSERT INTO users (fullname, email, pwd ,phone) VALUES (?,?,?,?)";
+          $stmt = mysqli_stmt_init($conn);
+          if(!mysqli_stmt_prepare($stmt, $sql)){
+           echo "Sql error";
+            // array_push($errors, "Sql error");
+            // exit();
+          }
+          else{
+            //hashing password using bcrypt 
+            $hashedPwd = password_hash($password,PASSWORD_DEFAULT);
+            mysqli_stmt_bind_param($stmt,"ssss", $fullname,$email,$hashedPwd,$mobile);
+            mysqli_stmt_execute($stmt);
+            echo "Successful signup";
+            // array_push($errors, "Successfully signed in");
+            // exit();              
+            header("Location: ../signin.php"); 
+          }
+        }
+      }
+    }
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
+  }
+  else{
+    header("Location: ../signup.php");
+    exit();    
+  }
   ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
