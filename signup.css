@@ -1,5 +1,3 @@
-
-
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap');
 
 * {
@@ -10,49 +8,68 @@
 }
 
 body {
+    width: 100%;
     background-color: #5a4fcf;
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
-/* The class .signup is used to make all style affect the signup page only */
+.container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	grid-gap: 10rem;
+} 
+
+.signupimage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 .signup form {
     background: white;
-    max-height: 1000px; 
+    max-height: 2000px; 
     border-radius: 25px;
-    padding: 25px 50px;
     margin: 25% 50px;
+    padding: 25px 50px;
+    
 }
 
 .signup form h1 {
     color: #5a4fcf;
     font-weight: bolder;
     margin: 10px 0px 20px;
+    width: 90%;
 }
 
 .signup form p {
     color: black;
     text-align: center;
     margin: 10px;
-    }
+    width: 90%;
+}
     
 .signup form a{
     text-decoration: underline;
     font-weight:bold;
-    color: #5a4fcf;    
+    color: #5a4fcf;   
+    width: 90%; 
+}
+
+.signup .inputs {
+width: 45%;
+display:inline-block;
+margin: 2px auto;
 }
 
 .signup label {
     color: #5a4fcf;
 }
 
-.signup input {
+.signup input[type="text"], input[type="email"], input[type="tel"], input[type="password"]{
 border: none;
 border-bottom: 2px solid #5a4fcf;
-display: block;
+display: inline;
 outline: none;
 padding: 10px 0px 1px;
-margin: 10px 0px 25px;
+margin: 10px auto 25px;
 width: 90%;
 color:white;
 font-size: 20px;
@@ -68,60 +85,9 @@ color: #5a4fcf;
     border-radius: 25px;
     display: block;
     background: #5a4fcf;
-    padding: 10px 15px;
-    width: 50%; 
+    padding: 10px 35px;
+    max-width: 90%;
     color: white;
     text-weight: bolder;
     margin: 15px auto 10px;
     }
-=======
-.signup-container{
-    min-height: 100px;
-}
-.login-bg{
-    background: url('https://res.cloudinary.com/benjee/image/upload/v1569283278/Vector_dgyn22.png') no-repeat center;
-    background-size: cover;
-    width: 90%;
-}
-.signup-form{
-    text-align: center;
-    background-color: #ffffff;
-    border-radius: 30px;
-    height: 85%;
-    width: 65%;
-    padding: 10%;
-    margin: 10%;
-}
-.form-header h1{
-    font-size: 25px;
-    margin-bottom: 20%; 
-}
-.form-group{
-    display: flex;
-    font-size: 16px;
-}
-.login-control{
-    border-bottom: 2px solid #26255B;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    background: none;
-    outline: none;
-    width: 80%;
-}
-.signup-btn{
-    width: 80%;
-    border-radius: 20px;
-    background-color: #26255B;
-    border: #26255B;
-}
-.signup-btn:hover{
-    background-color: rgb(20, 20, 48);
-}
-.signup-content{
-    margin: 2% 0%;
-    padding: 4% 0;
-}
-.signup-image{
-    height: 80%;
-}
