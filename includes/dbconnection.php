@@ -1,4 +1,10 @@
 <?php
+
+/*
+ *  You really didn't need to do all this as I have created the same file in database/connection.php before
+ * This is one of the reasons why we keep getting conflicts
+ */
+
 // $servername = "us-cdbr-iron-east-02.cleardb.net";
 // $dbUsername="b0ae198915bb2d";
 // $dbPassword ="16a1a0d0";
