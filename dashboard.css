@@ -1,0 +1,481 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    font-family: 'Open Sans', sans-serif;
+    min-width: 350px;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.nav-header {
+    width: 100%;
+    height: 10vw;
+    background-color: #26255B;
+    position: fixed;
+    top: 0;
+    display: flex;
+    z-index: 4;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-size: 1em;
+}
+
+.first-section header nav {
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon {
+    display: none;
+    color: #26255B;
+}
+
+#nav-items {
+    display: flex;
+    list-style-type: none;
+}
+
+#nav-items a {
+    text-decoration: none;
+    color: #fff;
+    margin-right: 2em;
+    font-size: 17px;
+}
+
+.dashboard-contain {
+    margin-top: 15vw;
+    /* padding: 20px; */
+}
+
+.nav-header>span {
+    margin: 0 30px;
+}
+
+.nav-left {
+    position: fixed;
+    top: 15vw;
+    left: 1vw;
+    z-index: 4;
+}
+
+.dashboard-header {
+    margin: 50px;
+    /* margin-top: 10%; */
+    margin-left: 20%;
+    width: 60%;
+    background: rgba(38, 37, 91, 0.4);
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.clear_bg {
+    background: 0;
+    border-radius: 0;
+}
+
+.box {
+    margin-bottom: 2px;
+    margin-top: 5px;
+}
+
+#user {
+    padding: 0;
+    position: fixed;
+    top: 2px;
+    left: 0;
+    height: fit-content;
+    font-size: 2vw;
+    font-weight: 500;
+}
+
+#animate_name {
+    padding-top: 5%;
+    font-size: 2vw;
+    font-weight: 500;
+    /* font-family:gabriola; */
+    color: #26255B;
+    width: contain;
+}
+
+.header>p,
+.header>p+span {
+    font-size: 1.2em;
+}
+
+span>a {
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-links {
+    /* border-right: 1px solid #26255B; */
+    /* padding: 20px; */
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 0.9em;
+    border-radius: 12px;
+    color: #fff;
+    background-color: #26255B;
+    padding: 20px;
+    height: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-links .reset {
+    text-decoration: none;
+    font-size: 0.9em;
+    border-radius: 12px;
+    color: #fff;
+    background-color: #26255B;
+    padding: 20px;
+    height: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.summary {
+    position: fixed;
+    /* top : 5vh; */
+    display: flex;
+    justify-content: space-evenly;
+    color: #fff;
+    width: 100%;
+}
+
+.networth,
+.assets,
+.liability {
+    /* background-color: #26255B; */
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center;
+    /* border-radius: 12px; */
+    width: 22%;
+    height: fit-content;
+    font-size: 2vw;
+    font-weight: 500;
+    cursor: not-allowed;
+}
+
+.calculate {
+    width: 100%;
+    /* height: 100%; */
+    /* margin-top: 40px; */
+}
+
+.assets-header {
+    font-size: 1.2em;
+    margin: 30px 0;
+    color: #26255B;
+    font-weight: 1000;
+    word-spacing: 2px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cash {
+    width: 23%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cash>p {
+    margin: 0 0 7px 0;
+    font-weight: 800;
+    color: #26255B;
+}
+
+label {
+    margin: 0 0 7px 0;
+    color: #26255B;
+    font-size: 0.9em;
+    font-weight: 600;
+    display: block;
+}
+
+input {
+    margin-bottom: 12px;
+    border: 0;
+    border-bottom: 2px solid #26255B;
+    padding-bottom: 3px;
+    width: 200px;
+    z-index: 100;
+    display: block;
+    background-color: #fff0;
+    background-blend-mode: screen;
+    /* background: rgba(38,37,91,0.06); */
+}
+
+input:focus {
+    outline: none;
+}
+
+#business-value {
+    margin: 0 0 7px 0;
+    font-weight: 800;
+    color: #26255B;
+}
+
+.reset {
+    /* background-color: gold; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 25px 0 15px 0;
+}
+
+.reset>button {
+    text-decoration: none;
+    background-color: #26255B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    color: #fff;
+    width: 150px;
+    height: 45px;
+}
+
+.sub-heading {
+    color: #26255B;
+    font-weight: 620;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 576px) {
+    .house {
+        visibility: hidden
+    }
+}
+
+.dropdown {
+    position: fixed;
+    top: 10vw;
+    width: 5vw;
+    border-radius: 0;
+    background-color: #26255B;
+    color: #26255B;
+    border: 0;
+}
+
+.dropdown-item {
+    padding: 0;
+    white-space: pre-wrap;
+}
+
+.btn-primary {
+    background-color: #26255B;
+    color: #ffffff;
+    border: 0;
+}
+
+.btn-primary:hover {
+    background-color: #26255B;
+    color: #ffffff;
+    border: 0;
+}
+
+.show>.btn-primary.dropdown-toggle:focus {
+    background-color: #26255B;
+    color: #ffffff;
+    border: 0;
+    box-shadow: 0 0 0 0.2rem #26255B;
+}
+
+.show>.btn-primary.dropdown-toggle,
+.btn-primary:not(:disabled):not(.disabled):active:focus {
+    background-color: #26255B;
+    color: #ffffff;
+    border: 0;
+    box-shadow: 0 0 0 0.2rem #26255B;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle {
+    background-color: #26255B;
+    color: #ffffff;
+    border: 0;
+    box-shadow: 0 0 0 0.2rem #26255B;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle {
+    background-color: #26255B;
+    color: #ffffff;
+    border: 0;
+    box-shadow: 0 0 0 0.2rem #26255B;
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, .5);
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, .5);
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem #26255B;
+}
+
+.small_device {
+    display: none;
+}
+
+
+/* .hide{
+    display:none;
+}
+.hidden{
+    visibility:hidden;
+} */
+
+@media only screen and (max-width: 768px) {
+    .small_device {
+        display: contents;
+    }
+    .nav-left {
+        visibility: hidden;
+    }
+    #animate_name {
+        font-size: 20px;
+        margin-top: 50px;
+        padding-left: 40px;
+    }
+    .dashboard-header {
+        FONT-WEIGHT: 100;
+        margin: 50px;
+        margin-left: 30%;
+        /* width: 100%; */
+        padding: 5%;
+        overflow: scroll;
+        border-radius: 20px
+<<<<<<< HEAD
+    }
+}
+=======
+                }          
+ 
+  } 
+
+
+/*  Share Buttons CSS by @Aphatheology
+    Don't be Scared!!!
+    A new class name is added to all elements to avoid affecting previous elements
+*/
+.sharebutton {
+    background-color: #5a4fcf;
+    padding: 10px;
+    margin: 50px auto;
+    border: 5px solid inherit;
+    max-width: 350px;
+    color: white;
+    text-align: center;
+}
+
+.sharebutton .edit {
+    width: 90%;  
+    text-align: justify;
+    outline: none;
+    color: black;
+    font-size: 1.2rem;
+    line-height: 1.56;
+    margin: 30px;
+    padding: 10px;
+    position: relative;
+    border: 1px solid #DFE8EC;
+    background: -webkit-linear-gradient(top, #DFE8EC 0%, white 8%) 0 56px;
+    background: -moz-linear-gradient(top, #DFE8EC 0%, white 8%) 0 56px;
+    background: linear-gradient(top, #DFE8EC 0%, white 8%) 0 56px;
+    -webkit-background-size: 100% 30px;
+    -moz-background-size: 100% 30px;
+    background-size: 100% 30px;
+}
+
+.sharebutton a:link, .sharebutton a:visited {
+    margin: 10px auto;   
+    color: white;
+    padding: 14px 25px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+.sharebutton a:hover, .sharebutton a:active {
+    background-color: #5a4fcf;
+    color: white;
+}
+.sharebutton  a.whatsapp:link, .sharebutton  a.whatsapp:visited {
+    background-color: #25D366; }
+
+.sharebutton a.whatsapp:hover, .sharebutton a.whatsapp:active {
+    background-color: #5a4fcf;
+    color: white;
+}
+
+.sharebutton  a.twitter:link, .sharebutton  a.twitter:visited {
+    background-color: #1da1f2; }
+
+.sharebutton a.twitter:hover, .sharebutton a.twitter:active {
+    background-color: #5a4fcf;
+    color: white;
+}
+
+.sharebutton  a.facebook:link, .sharebutton  a.facebook:visited {
+    background-color: #3b5998; }
+
+.sharebutton a.facebook:hover, .sharebutton a.facebook:active {
+    background-color: #5a4fcf;
+    color: white;
+}
+
+/* Share Button CSS ends here */
+<<<<<<< HEAD
+>>>>>>> f341cb228efa9162658eeaee458540e64d3fbbdd
+=======
+>>>>>>> 252da10dcf305aa346bc3f85fa8af2206727d7a8
