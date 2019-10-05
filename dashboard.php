@@ -2,7 +2,6 @@
 session_start();
 // include("includes/checklogin.php");
 // check_login();
-
 	
 ?>
 <!DOCTYPE html>
@@ -25,49 +24,7 @@ session_start();
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
     </head>
-
-            
-            
-    <body onload = "callName();get_networth();get_items();">
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>&& $_SESSION["loggedin"] == true
-        <![endif]-->
-<?php if (isset($_SESSION["loggedin"])): ?>
-        <main class="container-fluid" style = 'padding-left:0;padding-right:0;'>
-        <header class="nav-header" style = 'left:0px;'>
-        <!-- This is used to store the user_id DO NOT REMOVE -->
-                <input type="hidden" id="userid" name="userid" value="<?=$_SESSION['id']?>">
-                <!-- <span><a href="#">Heracles</a></span> -->
-                <!-- <span  id = 'user'><a href="#"> <?php echo $_SESSION['name']?></a></span> -->
-                <div class="summary" >
-                        <div class="networth"  >
-                            <p class ='box'>Your Net worth</p>
-                            <span id="_networth">00.00</span>
-                        </div>
-                        <div class="assets">
-                            <p class = 'box'>Your Assets</p>
-                            <span id="assetSum">00.00</span>
-                        </div>
-                        <div class="liability">
-                            <p class='box'>Your Liability</p>
-                            <span id="liabilitySum">-00.00</span>
-                        </div>
-                </div>
-        </header>
-                <div class='small_device'>
-                <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Options
-                    </button>
-                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <div class="dropdown-item " onclick="_reset()"><span><img class="icon" src="https://res.cloudinary.com/benjee/image/upload/v1569337224/turn-on_yb5bkw.svg" alt="home" width="30" height="30"></span>reset</div>
-                    <!-- <a class="dropdown-item" href="settings.php"><span><img class="icon" src="https://res.cloudinary.com/benjee/image/upload/v1569337223/settings_ffgo0r.svg" alt="home" width="30" height="30"></span>Settings</a> -->
-                    <a class="dropdown-item" href="includes/logout.inc.php"><span><img class="icon" src="https://res.cloudinary.com/benjee/image/upload/v1569337223/logout_jimglg.svg" alt="home" width="30" height="30"></span>Log out</a>
-                </div>
-            </div>
-            </div>
-
-            <div class="dashboard-contain">
+	<div class="dashboard-contain">
                 <section class="nav-left">
                     <div class="nav-links">
                         
@@ -78,7 +35,63 @@ session_start();
                         <a href="includes/logout.inc.php"><span><img class="icon" src="https://res.cloudinary.com/benjee/image/upload/v1569337223/logout_jimglg.svg" alt="home" width="30" height="30"></span>Log out</a>
                          
                     </div>
-                    </div>
+    <body onload = "callName();get_networth();get_items();get_chart_data();">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>&& $_SESSION["loggedin"] == true
+        <![endif]-->
+<?php if (isset($_SESSION["loggedin"])): ?>
+        <main class="container-fluid" style = 'padding-left:0;padding-right:0;'>
+        <header class="nav-header" style = 'left:0px;'>
+        <!-- This is used to store the user_id DO NOT REMOVE -->
+        <input type="hidden" id="userid" name="userid" value="<?=$_SESSION['id']?>">
+            <!-- <span><a href="#">Heracles</a></span> -->
+            <!-- <span  id = 'user'><a href="#"> <?php echo $_SESSION['name']?></a></span> -->
+            <div class="summary" >
+                <div class="networth"  >
+                    <p class ='box'>Your Net worth</p>
+                    <span id="_networth">00.00</span>
+                </div>
+                <div class="assets">
+                    <p class = 'box'>Your Assets</p>
+                    <span id="assetSum">00.00</span>
+                </div>
+                <div class="liability">
+                    <p class='box'>Your Liability</p>
+                    <span id="liabilitySum">-00.00</span>
+                </div>
+            </div>
+        </header>
+
+        <div class='small_device'>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Options
+                    </button>
+                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-item " onclick="_reset()"><span><img class="icon" src="https://res.cloudinary.com/benjee/image/upload/v1569337224/turn-on_yb5bkw.svg" alt="home" width="30" height="30"></span>reset</div>
+                    <a style="color: black" href="profile.html">
+                            Profile
+                        </a>
+                        <br>
+                        <a style="color: black" href="settings.php" onclick="get_chart_data()" data-toggle="modal" data-target="#networthchart" role="button">
+                            View Chart
+                        </a>
+                    <a class="dropdown-item" href="includes/logout.inc.php"><span><img class="icon" src="https://res.cloudinary.com/benjee/image/upload/v1569337223/logout_jimglg.svg" alt="home" width="30" height="30"></span>Log out</a>
+                </div>
+            </div>
+            </div>
+
+            <div class="dashboard-contain">
+                <section class="nav-left">
+                    <div class="nav-links">
+                        <a href="profile.html">
+                            Profile
+                        </a>
+                        <a href="settings.php" onclick="get_chart_data()" data-toggle="modal" data-target="#networthchart" role="button">
+                            View Chart
+                        </a>
+                        <a href="includes/logout.inc.php"><span><img class="icon" src="https://res.cloudinary.com/benjee/image/upload/v1569337223/logout_jimglg.svg" alt="home" width="30" height="30"></span>Log out</a>
+                        <div class="reset" onclick="_reset()"><span><img class="icon" src="https://res.cloudinary.com/benjee/image/upload/v1569337224/turn-on_yb5bkw.svg" alt="home" width="30" height="30"></span>reset</div>
                     </div>
                     </div>
                 </section>
@@ -90,7 +103,6 @@ session_start();
                         //  echo '<center><h1> Successfully LoggedIn</h1><center>';
                         }else{
                         //  echo '<center><h1> You are already LoggedIn</h1><center>';
-
                         }  
                      }
                     ?>
@@ -261,14 +273,63 @@ session_start();
                 <i class="fa fa-facebook fa-stack-1x"></i>
             </span>
         </a>
+
+    </div>
+    <!-- Share Button ends here -->
+
+    <!-- footer starts here -->
+    <div class="footer"> 
+        <div class="footer-content">
+            <div class="footer-section about"> 
+                <h3 class="logo-text"> Heracles Networth Calculator </h3> 
+                <p>Inspired by HNG 6   </p> <br>
+            </div>
+
+            <div class="footer-section links"> 
+                <h3> Quick Links</h3> 
+                <ul>
+                    <a href="#">    
+                        <li> FAQ </li>  
+                    </a>
+                    <!-- <a href="#">   <li>Support </li>     </a> -->
+                    <a href="#">    
+                        <li> Disclaimer </li>    
+                    </a> 
+                    <a href="#">   
+                        <li> Privacy Policy </li>   
+                    </a>
+                </ul>
+            </div>
+
+            <div class="footer-section">  
+                <h3>Follow Us Online</h3>
+                <div id="soc-media">
+                    <a href="https://facebook.com"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com"><i class="fa fa-twitter"></i></a>
+                    <a href="https://instagram.com"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+        </div> 
+        <div class="footer-bottom">
+            <b>&copy; | Designed By Team Heracles For HNG, 2019. </b> <br>
+        </div>
     </div>
 
-    <!-- Share Button ends here -->
 <?php else:?>
 <h1>You are not logged in, Please <a href="signin.php">signin</a> to Access this page</h1>
         
         <?php endif;?>
         <!-- <script src="" async defer></script> -->
+        <!-- Modal -->
+    <div class="modal fade" id="networthchart" tabindex="-1" role="dialog"
+        aria-labelledby="networthchart" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered .modal-dialog-scrollable" role="document">
+                <div class="modal-body">
+                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -277,7 +338,13 @@ session_start();
 
     <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" -->
         <!-- integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="dashboard/dashboard.js"></script>
     </body>
 </html>
+<!-- 
+    <a href="https://facebook.com" class=" socials fb" target="_blank"></i></a>
+    <a href="https://twitter.com" class="socials twt" target="_blank"></i></a>
+    <a href="https://instagram.com" class="socials inst" target="_blank"></i></a>
+-->
