@@ -32,7 +32,7 @@
                             <div class="form-group" >
                                 <div class="input-control">
                                     <input type="email" value="<?php echo $email ?>" class="login-control" id="email" name="email"placeholder="Email Address" required>
-                                    <input type="text" value="<?php echo $phone ?>" class="login-control" id="mobile"name="mobile" placeholder="Phone number" required>
+                                    <input type="number" value="<?php echo $phone ?>" class="login-control" id="mobile" name="mobile" placeholder="Phone number" required>
                                 </div>
                                 </div>
                             <div class="form-group">
