@@ -27,18 +27,18 @@
                                     <?php include ("error.php"); ?>
                                 </div>
                             <div class="form-group">
-                                <input type="text" class="login-control" id="fullname" placeholder="Fullname"  name="fullname" required>
+                                <input type="text" value="<?php echo $fullname ?>" class="login-control" id="fullname" placeholder="Fullname"  name="fullname" required>
                                 </div>
                             <div class="form-group" >
                                 <div class="input-control">
-                                    <input type="email" class="login-control" id="email" name="email"placeholder="Email Address" required>
-                                    <input type="text" class="login-control" id="mobile"name="mobile" placeholder="Phone number" required>
+                                    <input type="email" value="<?php echo $email ?>" class="login-control" id="email" name="email"placeholder="Email Address" required>
+                                    <input type="text" value="<?php echo $phone ?>" class="login-control" id="mobile"name="mobile" placeholder="Phone number" required>
                                 </div>
                                 </div>
                             <div class="form-group">
                                 <div class="input-control">
-                                    <input type="password" class="login-control" id="password" placeholder="Password"   name="password" required>
-                                    <input type="password" class="login-control" id="Cpassword"name="confirmPassword" placeholder="Confirm Password"  required>
+                                    <input type="password" value="<?php echo $password ?>" class="login-control" id="password" placeholder="Password"   name="password" required>
+                                    <input type="password" value="<?php echo $confirmPassword ?>" class="login-control" id="Cpassword"name="confirmPassword" placeholder="Confirm Password"  required>
                                 </div>
                             </div>
                             <div class="g-recaptcha" data-sitekey="6LcUkrsUAAAAAHzhwTdJ9Ez0q_aIv_Mr98gsm5q8" name="captcha"></div>
