@@ -1,6 +1,8 @@
 <?php
 require_once('dbconnection.php');
 session_start();
+
+$_SESSION['old_input'] = [];
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
   $msg = "You are already logged in";
   header("location:../dashboard.php?error=You are already Loggedin");
@@ -33,7 +35,11 @@ if (isset($_POST['loginBtn'])) {
   }
   else
   {
-  header("location:../signin.php?error=Invalid_Username_and_Password");
+    $_SESSION['old_input'] = [
+      'password' =>  isset($_REQUEST['password']) ? $_REQUEST['password'] : null,
+      'email' => isset($_REQUEST['email']) ? $_REQUEST['email'] : null,
+    ];
+   header("location:../signin.php?error=Invalid_Username_and_Password");
   exit();
   }
   }
