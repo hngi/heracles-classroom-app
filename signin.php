@@ -48,11 +48,11 @@
                             </div>
                             <div class="email-content">
                                 <!-- <label for="email" class="pt-2">EMAIL ADDRESS</label> -->
-                                <input type="email" id="email" class="form-control fc" name="email" placeholder = 'Email address'>
+                                <input type="email" id="email" class="form-control fc" name="email" value="<?php echo $_SESSION['old_input']['email'] ?? '' ?>" placeholder = 'Email address'>
                             </div> <br/>
                             <div class="pwrd-content">
                                     <!-- <label for="password">PASSWORD</label> -->
-                                    <input type="password" id="password"name="password"class="form-control fc" placeholder = 'Password'>
+                                    <input type="password" id="password" name="password" class="form-control fc" value="<?php echo $_SESSION['old_input']['password'] ?? '' ?>" placeholder='Password'>
                                 </div> <br/>
                             <div class="button">
                                 <button class="form-control btn"  name="loginBtn"type="submit">Login</button>

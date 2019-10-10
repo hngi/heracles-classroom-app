@@ -5,6 +5,7 @@ function formValidation() {
   var emailLen = email.value.length;
   var passwordLen = password.value.length;
   
+  //validating @
   if (emailLen == 0 || atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= emailLen) {
     alert("Please enter a valid email address");
   email.focus();
