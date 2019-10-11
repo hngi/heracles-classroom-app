@@ -33,6 +33,10 @@ if (isset($_POST['loginBtn'])) {
   }
   else
   {
+    $_SESSION['old_input'] = [
+      'password' =>  isset($_REQUEST['password']) ? $_REQUEST['password'] : null,
+      'email' => isset($_REQUEST['email']) ? $_REQUEST['email'] : null,
+    ];
   header("location:../signin.php?error=Invalid_Username_and_Password");
   exit();
   }
