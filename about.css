@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.header {
+    margin: 20px;
+}
+
+.header a{
+    margin-left: 60%;
+    text-decoration: none;
+    color: #26255B;
+    font-size: 20px;
+}
+
+a:hover{
+    text-decoration: none !important;
+}
+
+h1{
+    padding-top: 20px;
+    color: #26255B;
+}
+
+p{
+    padding: 0 30px;
+    font-size: 20px;
+    line-height: 30px;
+}
